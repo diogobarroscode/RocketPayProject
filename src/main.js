@@ -98,3 +98,27 @@ cardHolder.addEventListener("input", () => {
   ccHolder.innerText =
     cardHolder.value.length === 0 ? "NOME NO CARTÃO" : cardHolder.value
 })
+
+/** Input do código de verificação no cartão **/
+securityCodeMasked.on("accept", () => {
+  updateSecurityCode(securityCodeMasked.value)
+})
+
+function updateSecurityCode(code) {
+  const ccSecurity = document.querySelector(".cc-security .value")
+
+  ccSecurity.innerText = code.length === 0 ? "123" : code
+}
+
+/** Input do número no cartão e bandeira **/
+cardNumberMasked.on("accept", () => {
+  const cardType = cardNumberMasked.masked.currentMask.cardType
+  setCardType(cardType)
+  updateCardNumber(cardNumberMasked.value)
+})
+
+function updateCardNumber(number) {
+  const ccNumber = document.querySelector(".cc-number")
+
+  ccNumber.innerText = number.length === 0 ? "1234 5678 9012 3456" : number
+}
