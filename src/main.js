@@ -89,3 +89,12 @@ addButton.addEventListener("click", () => {
 document.querySelector("form").addEventListener("submit", (event) => {
   event.preventDefault()
 })
+
+/** Input do nome do titular no cartão **/
+const cardHolder = document.querySelector("#card-holder")
+cardHolder.addEventListener("input", () => {
+  const ccHolder = document.querySelector(".cc-holder .value")
+
+  ccHolder.innerText =
+    cardHolder.value.length === 0 ? "NOME NO CARTÃO" : cardHolder.value
+})
